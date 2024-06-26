@@ -1,0 +1,25 @@
+
+.nav__list {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  color:dimgrey;
+}
+
+.nav__list-item.active {
+  border-bottom: 2px solid dimgrey;
+  pointer-events: none; 
+}
+
+.nav_reports-title {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 28px;
+  color:#686C5E ;
+}

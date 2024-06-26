@@ -1,0 +1,20 @@
+.user_task_status-link {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  background-color: #686C5E;
+  color: antiquewhite;
+  border-radius: 5px;
+  padding: 5px 8px 5px 8px;
+}
+
+.user_task_status-link:hover {
+  background-color: #0093A1;
+  transition: background-color .5s ease;
+}
+
+.user_task_status-link.active {
+  background-color: #0093A1;
+  pointer-events: none;   
+}
