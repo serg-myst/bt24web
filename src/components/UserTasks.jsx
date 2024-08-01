@@ -89,6 +89,14 @@ function UserTasks() {
                 {type==='end' ? <p className="card__body-task-closed">Закрыта: {format(new Date(task.closedDate), 'dd.MM.yyyy')}</p> : ''}
               </div>
               <p className="card__body-task-text2">{`Заказчик: ${task.creator.name} (${task.creator.workPosition})`}</p>
+              <fieldset className="card__body_fieldset">
+                <legend className="card__body_legend">Планирование</legend>
+                  <div className="card__body_plan">
+                    <p className="card__body_plan-start">Начало: {task.startDatePlan == null ? '<<не указан>>' : format(new Date(task.startDatePlan), 'dd.MM.yyyy')}</p>
+                    <p className="card__body_plan-end">Окончание:  {task.endDatePlan == null ? '<<не указан>>' : format(new Date(task.endDatePlan), 'dd.MM.yyyy')}</p>
+                    <p className="card__body_plan-time">Время, час: {task.timeEstimate}</p>
+                  </div>                   
+              </fieldset>
               <div className="card__body-user_task">
                 <a className="card__link-task" target="_blank" href={`${import.meta.env.VITE_API_URL_BT}${id}/tasks/task/view/${task.id}/`}>
                   <p className="card__link-task-text">Подробно о задаче</p>

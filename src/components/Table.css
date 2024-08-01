@@ -4,15 +4,37 @@
 }
 
 .table__container {
- margin-top: 20px; 
- margin-bottom: 20px;
+  margin: 0 auto;
 }
 
 .table__report-period {
   margin-bottom: 10px;
 }
 
+.table__report__legend {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  text-align: center; 
+}
+
+.table__report__legend-color {
+  width: 60px;
+  height: 20px;
+  background-color: #FA8072;
+}
+
+.table__report__legend-text{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 .table__report--period-text {
+  margin-top: 20px;
   margin-left: 10px;
   margin-bottom: 5px;
   font-weight: 600;
@@ -40,13 +62,19 @@
     margin: 0 auto;
 }
 
+.table__row:hover {
+  background-color: #dbd9d9;  
+  transition: 0.2s;
+}
+
 .table__header {
     height: 60px;
+    width: 100%;
 }
 
 .table__row {
     padding-top: 1px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .table__header-cell-1,
@@ -56,48 +84,67 @@
 .table__header-cell-5,
 .table__header-cell-6,
 .table__header-cell-7,
+.table__header-cell-8,
+.table__header-cell-9,
+.table__header-cell-10,
 .table__row-cell-1,
 .table__row-cell-2,
 .table__row-cell-3,
 .table__row-cell-4,
 .table__row-cell-5,
 .table__row-cell-6,
-.table__row-cell-7 {
+.table__row-cell-7,
+.table__row-cell-8,
+.table__row-cell-9,
+.table__row-cell-10
+ {
     flex: 1;
     padding: 8px;
     border: 1px solid #ccc;
     text-align: center;
     display: flex;
     align-items: center;
+    font-size: 12px;
 }
 
 .table__header-cell-1,
 .table__row-cell-1 {
-    min-width: 80px;
+    width: 72px;
 }
 
 .table__header-cell-2,
 .table__row-cell-2 {
-    min-width: 100px;
+    width: 100px;
 }
 
 .table__header-cell-3,
 .table__row-cell-3 {
-    min-width: 400px;
+    width: 330px;
 }
 
 .table__header-cell-4,
 .table__row-cell-4 {
-    min-width: 150px;
+    width: 120px;
 }
 
 .table__header-cell-5,
 .table__header-cell-6,
 .table__header-cell-7,
+.table__header-cell-8,
+.table__header-cell-9,
 .table__row-cell-5,
 .table__row-cell-6,
-.table__row-cell-7 {
-    min-width: 100px;
+.table__row-cell-7,
+.table__row-cell-8,
+.table__row-cell-9
+{
+    width: 90px;
+}
+
+.table__header-cell-10,
+.table__row-cell-10
+{
+  width: 75px;  
 }
 
 .table__header-row,
@@ -115,4 +162,23 @@
 .table__row-cell-text {
     text-align: center;
     width: 100%;
+}
+
+.table__row.high {
+  background-color: #FA8072;
+}
+
+.table__report_total {
+  max-width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: right;
+}
+
+.table__report_total-text {
+  font-weight: 600;
+  font-family: 'Helvetica', sans-serif;  
+  margin-right: 25px;
+  color: #686C5E; 
 }

@@ -24,8 +24,8 @@ function Reports() {
 
   return (
     <section className="table__section">
-     <nav className="nav_reports">
       <div className="container"> 
+         <nav className="nav_reports">
           <ul className="nav__list">
             {/*
             <li className={activeMenuItem === "000" ? "nav__list-item active" : "nav__list-item"} key="000" onClick={() => setActiveMenuItem("000")}>
@@ -41,8 +41,8 @@ function Reports() {
         })}
           </ul>   
         {activeMenuItem === "000" ? <h3 className='nav_reports-title'>Выберите раздел для формирования отчета по задачам</h3> : <TableTask depId = {depid}/>}
+      </nav> 
       </div>
-      </nav>
     </section>
   )
 }
