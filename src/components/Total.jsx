@@ -15,8 +15,6 @@ function Total({taskList}) {
     }
 
     const totalSum = GetSum()  
-
-    console.log(totalSum)
    
     return (
       <div className="table__report_total"><span className="table__report_total-text">Плановых часов: {totalSum}</span></div>
