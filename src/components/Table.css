@@ -19,13 +19,20 @@
   text-align: center; 
 }
 
-.table__report__legend-color {
+.table__report__legend_important-color {
   width: 60px;
   height: 20px;
   background-color: #FA8072;
 }
 
-.table__report__legend-text{
+.table__report__legend_overdue-color {
+  width: 60px;
+  height: 20px;
+  background-color: #FFFF00;
+}
+
+
+.table__report__legend_important-text, .table__report__legend_overdue-text{
   margin-left: 5px;
   margin-right: 5px;
   font-family: 'Helvetica', sans-serif;
@@ -93,6 +100,7 @@
 .table__row-cell-4,
 .table__row-cell-5,
 .table__row-cell-6,
+.table__row-cell-6-overdue,
 .table__row-cell-7,
 .table__row-cell-8,
 .table__row-cell-9,
@@ -134,11 +142,16 @@
 .table__header-cell-9,
 .table__row-cell-5,
 .table__row-cell-6,
+.table__row-cell-6-overdue,
 .table__row-cell-7,
 .table__row-cell-8,
 .table__row-cell-9
 {
     width: 90px;
+}
+
+.table__row-cell-6-overdue {
+  background-color: #FFFF00;
 }
 
 .table__header-cell-10,
@@ -181,4 +194,4 @@
   font-family: 'Helvetica', sans-serif;  
   margin-right: 25px;
   color: #686C5E; 
-}
+} 

@@ -10,6 +10,7 @@ function TableTask({depId}) {
   const dayMilliseconds = 24*60*60*1000;
   const [dateStart, setDateStart] = useState(new Date()-(7 * dayMilliseconds));
   const [dateEnd, setDateEnd] = useState(new Date());
+  const [userTaskVision, setUserTaskVision] = useState([])
 
   const data = {
     "user_id": 1,
@@ -26,6 +27,11 @@ function TableTask({depId}) {
     });
     }
 
+    function userOnClick(el) {
+      console.log(el.target.id)
+      console.log(userTaskVision.includes(el.target.id))
+    } 
+
     useEffect(() => {
       fetchUserTasks();
   },[depId, dateStart, dateEnd]);
@@ -37,13 +43,15 @@ function TableTask({depId}) {
         <DatePickerComp  setDateStart={setDateStart} setDateEnd={setDateEnd} dateStart={dateStart} dateEnd={dateEnd}/> 
       </div>   
       <div className='table__report__legend'>
-          <span className='table__report__legend-color'></span>  
-          <p className='table__report__legend-text'>- Важная задача</p>    
+          <span className='table__report__legend_important-color'></span>  
+          <p className='table__report__legend_important-text'>- важная задача</p>   
+          <span className='table__report__legend_overdue-color'></span>  
+          <p className='table__report__legend_overdue-text'>- задача просрочена</p>   
       </div>
       {userTasks.map(user => {
         return ( 
         <div className="table" key={user.id}>
-          <h3 className='table__report-header'>{user.last_name} {user.name} {user.second_name}</h3>
+          <h3 onClick={userOnClick} id={user.id} className='table__report-header'>{user.last_name} {user.name} {user.second_name}</h3>
           <div className="table__header">
               <div className="table__header-row">
                   <div className="table__header-cell-1"><span className="table__header-cell-text">Задача</span></div>
@@ -79,7 +87,7 @@ function TableTask({depId}) {
           {user.tasks.map(taskList => {
             {const taskComponents = taskList.map(task =>  
               <a target='_blank' href={`${import.meta.env.VITE_API_URL_BT}${user.id}/tasks/task/view/${task.id}/`}>
-                <div className={task.priority === 2 ? "table__row high" : "table__row"} key={task.id}>
+                <div id={`user_${user.id}`} className={task.priority === 2 ? "table__row high" : "table__row"} key={task.id}>
                     <div className="table__row-row">
                         <div className="table__row-cell-1"><span className="table__row-cell-text">{task.id}</span></div>
                     </div>
@@ -96,7 +104,7 @@ function TableTask({depId}) {
                         <div className="table__row-cell-5"><span className="table__row-cell-text">{task.createdDate===null ? "" : moment(task.createdDate).format('DD.MM.YYYY')}</span></div>
                     </div>
                     <div className="table__row-row">
-                        <div className="table__row-cell-6"><span className="table__row-cell-text">{task.deadline===null ? "" : moment(task.deadline).format('DD.MM.YYYY')}</span></div>
+                        <div className={moment(task.deadline)<=moment() && task.status_real != 5 && task.status_real != 6 ? "table__row-cell-6-overdue" : "table__row-cell-6"}><span className="table__row-cell-text">{task.deadline===null ? "" : moment(task.deadline).format('DD.MM.YYYY')}</span></div>
                     </div>
                     <div className="table__row-row">
                         <div className="table__row-cell-7"><span className="table__row-cell-text">{task.closedDate===null ? "" : moment(task.closedDate).format('DD.MM.YYYY')}</span></div>
